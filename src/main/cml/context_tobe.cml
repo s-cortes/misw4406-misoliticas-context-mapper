@@ -1,0 +1,48 @@
+/* The DDD Cargo sample application modeled in CML. Note that we split the application into multiple bounded contexts. */
+ContextMap DDDSampleMap {
+	contains ContextoAuditorias
+	contains ContextoCompanias
+	contains ContextoContractual
+	contains ContextoGeoespacial
+	contains ContextoCatastral
+	contains ContextoPropiedad
+	contains ContextoEstadoMercado
+	contains ContextoTransacciones
+
+	ContextoCompanias [U,OHS] -> [D]  ContextoAuditorias
+	ContextoContractual [U,OHS] -> [D]  ContextoAuditorias
+	ContextoGeoespacial [U,OHS] -> [D]  ContextoAuditorias
+	ContextoCatastral [U,OHS] -> [D]  ContextoAuditorias
+
+	ContextoCompanias [U,OHS] -> [D,ACL] ContextoPropiedad
+	ContextoContractual [U,OHS] -> [D,ACL] ContextoPropiedad
+	ContextoGeoespacial [U,OHS] -> [D,ACL] ContextoPropiedad
+	ContextoCatastral [U,OHS] -> [D,ACL] ContextoPropiedad
+	ContextoPropiedad [U,OHS] -> [D,ACL] ContextoEstadoMercado
+	ContextoPropiedad [U,OHS] -> [D,ACL] ContextoTransacciones
+}
+
+BoundedContext ContextoPropiedad{
+	
+}
+BoundedContext ContextoEstadoMercado{
+	domainVisionStatement = "Contexto que contiene toda la información actual e historica del mercado"
+}
+BoundedContext ContextoTransacciones{
+	domainVisionStatement = "Contexto que contiene toda la información sobre transacciones de ventas y arrendamientos"
+}
+BoundedContext ContextoAuditorias{
+	domainVisionStatement = "Contexto de trabajo del equipo de Auditorias y validación de datos"
+}
+BoundedContext ContextoCompanias{
+	domainVisionStatement = "Contexto que contine"
+}
+BoundedContext ContextoContractual{
+	domainVisionStatement = "Contexto de recolección de datos automatizado"
+}
+BoundedContext ContextoGeoespacial{
+	domainVisionStatement = "Contexto de recolección de datos automatizado"
+}
+BoundedContext ContextoCatastral{
+	domainVisionStatement = "Contexto de almacenamiento de datos"
+}
