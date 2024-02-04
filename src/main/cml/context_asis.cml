@@ -1,0 +1,47 @@
+/* The DDD Cargo sample application modeled in CML. Note that we split the application into multiple bounded contexts. */
+ContextMap DDDSampleMap {
+	contains ContextoCompanias
+	contains ContextoContractual
+	contains ContextoGeoespacial
+	contains ContextoCatastral
+	contains ContextoAuditorias
+	contains ContextoPropiedad
+	contains ContextoEstadoMercado
+	contains ContextoTransacciones
+
+	ContextoAuditorias [P] <-> [P] ContextoCompanias
+	ContextoAuditorias [P] <-> [P] ContextoContractual
+	ContextoAuditorias [P] <-> [P] ContextoGeoespacial
+	ContextoAuditorias [P] <-> [P] ContextoCatastral
+	ContextoCompanias [U] -> [D,ACL] ContextoPropiedad
+	ContextoContractual [U] -> [D,ACL] ContextoPropiedad
+	ContextoGeoespacial [U] -> [D,ACL] ContextoPropiedad
+	ContextoCatastral [U] -> [D,ACL] ContextoPropiedad
+	ContextoPropiedad [U,OHS] -> [D,ACL] ContextoEstadoMercado
+	ContextoPropiedad [U,OHS] -> [D,ACL] ContextoTransacciones
+}
+
+BoundedContext ContextoPropiedad{
+	domainVisionStatement = "Contexto que centraliza la información sobre propiedades obtenida de todas las fuentes y contextos."	
+}
+BoundedContext ContextoEstadoMercado{
+	domainVisionStatement = "Contexto que contiene toda la información actual e historica del mercado."
+}
+BoundedContext ContextoTransacciones{
+	domainVisionStatement = "Contexto que contiene toda la información sobre transacciones de ventas y arrendamientos."
+}
+BoundedContext ContextoAuditorias{
+	domainVisionStatement = "Contexto de trabajo del equipo de Auditorias: validación y enriquecimiento de datos."
+}
+BoundedContext ContextoCompanias{
+	domainVisionStatement = "Contexto que centraliza la información obtenida sobre compañías de diferentes agentes (fuentes)."
+}
+BoundedContext ContextoContractual{
+	domainVisionStatement = "Contexto que centraliza la información contractual (movimientos de los vendedores, compradores, arrendatarios e inquilinos)."
+}
+BoundedContext ContextoGeoespacial{
+	domainVisionStatement = "Contexto que centraliza la información geográfica obtenida desde GIS."
+}
+BoundedContext ContextoCatastral{
+	domainVisionStatement = "Contexto que centraliza datos provenientes de planos e información catastral."
+}
