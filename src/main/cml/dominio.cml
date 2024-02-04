@@ -1,5 +1,0 @@
-Domain Mateo{
-	Subdomain Subdominio{
-		type CORE_DOMAIN
-	}
-}
