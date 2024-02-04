@@ -1,38 +1,59 @@
 /* The DDD Cargo sample application modeled in CML. Note that we split the application into multiple bounded contexts. */
 ContextMap DDDSampleMap {
-	contains GovermentSystemContext
-	contains ThirdPartySystemContext
-	contains DataProcesingContext
+	contains CollecterContext
+	contains StoreContext
+	contains PipelinesContext
 	contains ResearcherContext
 	contains ClientsContext
+	contains OCRContext
+	contains BotContext
+	contains MatchContext
 
 
-	GovermentSystemContext [U]->[D] DataProcesingContext
+	PipelinesContext <-> BotContext
 
-	ThirdPartySystemContext [U]->[D,ACL] DataProcesingContext
+	PipelinesContext <-> MatchContext
 
-	ResearcherContext [U]->[D,ACL]  DataProcesingContext
+	PipelinesContext <-> OCRContext
 
-	DataProcesingContext [U,OHS]->[D] ClientsContext
+	StoreContext <-> PipelinesContext
+
+	ResearcherContext [U]->[D,ACL]  StoreContext
+
+	CollecterContext [U]->[D,ACL]  StoreContext
+
+	StoreContext [U,OHS]->[D] ClientsContext
 
 }
 
-BoundedContext GovermentSystemContext{
-
+BoundedContext CollecterContext{
+	domainVisionStatement = "Contexto de recolección de datos automatizado"
 }
 
-BoundedContext ThirdPartySystemContext{
-
+BoundedContext StoreContext{
+	domainVisionStatement = "Contexto de almacenamiento de datos"
 }
 
-BoundedContext DataProcesingContext{
-
+BoundedContext PipelinesContext{
+	domainVisionStatement = "Contexto de ejecución de pipelines"
 }
 
 BoundedContext ResearcherContext{
-
+	domainVisionStatement = "Contexto de recolección de datos manual y enriquecimiento por auditorias"
 }
 
 BoundedContext ClientsContext{
+	domainVisionStatement = "Contexto de entrega de datos a los clientes"
+}
 
+BoundedContext OCRContext{
+	domainVisionStatement = "Contexto de procesamiento de datos por OCR (Optical Caracter Recognition)"
+}
+
+BoundedContext BotContext{
+	domainVisionStatement = "Contexto de llamadas a las compañias haciendo uso del Bot"
+}
+
+BoundedContext MatchContext{
+	domainVisionStatement = "Contexto de emparejamiento de datos procesados"
 }
