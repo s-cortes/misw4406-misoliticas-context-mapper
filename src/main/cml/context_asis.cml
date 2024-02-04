@@ -22,35 +22,26 @@ ContextMap DDDSampleMap {
 }
 
 BoundedContext ContextoPropiedad{
-
+	domainVisionStatement = "Contexto que centraliza la información sobre propiedades obtenida de todas las fuentes y contextos."	
 }
 BoundedContext ContextoEstadoMercado{
-
+	domainVisionStatement = "Contexto que contiene toda la información actual e historica del mercado."
 }
 BoundedContext ContextoTransacciones{
-
+	domainVisionStatement = "Contexto que contiene toda la información sobre transacciones de ventas y arrendamientos."
 }
-
 BoundedContext ContextoAuditorias{
-	domainVisionStatement = "Contexto de recolección de datos automatizado"
+	domainVisionStatement = "Contexto de trabajo del equipo de Auditorias: validación y enriquecimiento de datos."
 }
-
 BoundedContext ContextoCompanias{
-	domainVisionStatement = "Contexto de recolección de datos automatizado"
+	domainVisionStatement = "Contexto que centraliza la información obtenida sobre compañías de diferentes agentes (fuentes)."
 }
-
 BoundedContext ContextoContractual{
-	domainVisionStatement = "Contexto de recolección de datos automatizado"
+	domainVisionStatement = "Contexto que centraliza la información contractual (movimientos de los vendedores, compradores, arrendatarios e inquilinos)."
 }
-
 BoundedContext ContextoGeoespacial{
-	domainVisionStatement = "Contexto de recolección de datos automatizado"
+	domainVisionStatement = "Contexto que centraliza la información geográfica obtenida desde GIS."
 }
-
 BoundedContext ContextoCatastral{
-	domainVisionStatement = "Contexto de almacenamiento de datos"
-}
-
-BoundedContext ContextoAuditoria{
-	domainVisionStatement = "Contexto de recolección de datos manual y enriquecimiento por auditorias"
+	domainVisionStatement = "Contexto que centraliza datos provenientes de planos e información catastral."
 }

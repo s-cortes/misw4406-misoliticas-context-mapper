@@ -1,0 +1,14 @@
+@startuml
+
+skinparam componentStyle uml2
+
+component [CompaniasContext]
+component [ContractualContext]
+component [GeoespacialContext]
+component [CatastralContext]
+
+[CompaniasContext]<-->[CatastralContext] : Shared Kernel
+
+
+
+@enduml

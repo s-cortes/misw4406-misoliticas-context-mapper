@@ -1,0 +1,28 @@
+@startuml
+
+skinparam componentStyle uml2
+
+package se.citerus.dddsample.domain.model.InformacionCompania {
+	package "'InformacionCompania' Aggregate" <<Rectangle>> {
+		class Informacion <<(V,DarkSeaGreen) Value Object>> {
+		}
+		class RUES <<(E,DarkSeaGreen) Entity>> {
+		}
+		class ZoomInfo <<(E,DarkSeaGreen) Entity>> {
+		}
+		class OpenCorporates <<(E,DarkSeaGreen) Entity>> {
+		}
+		enum Estatus {
+			COMPLETA
+			INCOMPLETA
+		}
+		enum Calidad {
+			ALTA
+			MEDIA
+			BAJA
+		}
+	}
+}
+
+
+@enduml
