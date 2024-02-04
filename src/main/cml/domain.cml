@@ -1,0 +1,85 @@
+Domain BienesRaicesDomain {
+    domainVisionStatement = "
+        Proveer información sobre bienes raíces comerciales tales como listados
+        y detalles de propiedades, información precisa sobre arrendatarios, 
+        ransacciones sobre arrendamientos y comparativos de ventas
+    "
+
+    Subdomain CapturaCompaniasDomain {
+        type = CORE_DOMAIN
+        domainVisionStatement = "
+            Recolectar la información de compañias relacionadas a bienes raices
+            comerciales en un mercado específico
+        "
+    }
+
+    Subdomain CapturaContractualDomain {
+        type = CORE_DOMAIN
+        domainVisionStatement = "
+            Recopilar la información contractual y de transacciones sobre todos
+            los movimientos de las compañias de bienes raices comerciales para
+            mantener un historial con cadencia
+        "
+    }
+
+    Subdomain CapturaGeoespacialDomain {
+        type = CORE_DOMAIN
+        domainVisionStatement = "
+            Compilar detalladamente la información geoespacial y características de
+            alojamientos sobre las compañias en un mercado específico
+        "
+    }
+
+    Subdomain CapturaCatastralDomain {
+        type = CORE_DOMAIN
+        domainVisionStatement = "
+            Capturar la información detallada de lotes, edificios y pisos sobre
+            las compañias y propiedades de bienes raices.
+        "
+    }
+
+
+    Subdomain ProcesamientoFuentesDomain {
+        type = CORE_DOMAIN
+        domainVisionStatement = "
+            garantizar la calidad de las fuentes recolectadas con el objetivo de
+            asegurarle a los clientes que la inforamción de bienes raices es
+            concreta, completa, consistente, unica y oportuna.
+        "
+    }
+
+    Subdomain ValidacionInformacionDomain {
+        type = GENERIC_SUBDOMAIN
+        domainVisionStatement = "
+            revisar que las fuentes de datos provean información correcta y de alta
+            confiabilidad, aseguranto la calidad de sus fuentes, la consistencia,
+            y la completitud
+        "
+    }
+
+    Subdomain EnriquecimientoInformacionDomain {
+        type = GENERIC_SUBDOMAIN
+        domainVisionStatement = "
+            revisar que las fuentes de datos provean información correcta y de alta
+            confiabilidad, aseguranto la calidad de sus fuentes, la consistencia,
+            y la completitud
+        "
+    }
+
+    Subdomain InformeyEstadodeMercadoDomain {
+        type = GENERIC_SUBDOMAIN
+        domainVisionStatement = "
+            permitir a los usuarios desglosar de propiedad principal, la participación de mercado
+	    de las agencias, las tendencias históricas de arrendamiento y venta, y más en un área
+	    geográfica específica o dentro de un conjunto de propiedades competitivas
+        "
+    }
+
+    Subdomain TransacciondeVentasyArriendosDomain {
+        type = GENERIC_SUBDOMAIN
+        domainVisionStatement = "
+            extraer y procesar los datos de los arrendamientos
+            registrados para oficinas y propiedades industriales
+        "
+    }
+}
