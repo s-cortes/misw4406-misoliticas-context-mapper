@@ -1,0 +1,82 @@
+ContextMap PropiedadesDeLosAlpesMap {
+	contains CompaniasContext
+	contains ContractualContext
+	contains GeoespacialContext
+	contains CatastralContext
+
+CompaniasContext [SK]<->[SK] CatastralContext
+
+
+}
+
+BoundedContext CompaniasContext {
+	/* Centraliza el contexto de recolección de información sobre compañías en un mercado. */
+	Module InformacionCompania {
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate InformacionCompania {
+			ValueObject Informacion
+            Entity RUES
+            Entity ZoomInfo
+            Entity OpenCorporates
+			enum Estatus {
+	            COMPLETA, INCOMPLETA
+			}
+			enum Calidad {
+	            ALTA, MEDIA, BAJA
+			}
+		}
+	}
+}
+
+BoundedContext ContractualContext {
+	/* Centraliza el contexto de recolección de información contractual y de transacciones. */
+    Module InformacionContractual {
+		basePackage = se.citerus.dddsample.domain.model
+
+        Aggregate InformacionContractual {
+            ValueObject MovimientoContrato
+            ValueObject InformacionCompania
+            ValueObject ContratoDigital
+            Entity EmpresaContratosAlpes
+            Entity EmpresaListadosPropiedades
+        }
+    }
+}
+
+BoundedContext GeoespacialContext {
+	/* Centraliza el contexto de recolección de información geoespacial y de alojamiento. */
+    Module InformacionGeoespacialYAlojamiento {
+		basePackage = se.citerus.dddsample.domain.model
+
+        Aggregate InformacionGeoespacial {
+            ValueObject AreaLote
+            ValueObject Coordenadas
+            ValueObject Poligono
+            Entity Propiedad
+            Entity Edificio
+            Entity Direccion
+            Service GoogleMaps
+            Service BingMaps
+            Service OpenStreetMap
+        }
+    }
+}
+
+BoundedContext CatastralContext {
+	/* Centraliza el contexto de recolección de información catastral y de planos. */
+    Module InformacionCatastral {
+		basePackage = se.citerus.dddsample.domain.model
+
+        Aggregate InformacionCatastral {
+            ValueObject DetallesLote
+            ValueObject DetallesEdificio
+            ValueObject DetallesPiso
+            Entity Parcela
+            Entity Lote
+            Entity Edificio
+            Entity Piso
+            Service IntegracionInformacion
+        }
+    }
+}
